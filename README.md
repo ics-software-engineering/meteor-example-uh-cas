@@ -12,7 +12,7 @@ The settings file is needed to provide CAS parameter information. Note that you 
 
 ## Packages
 
-You must invoke 'meteor add' to add the following packages:
+Note that this system adds two packages to support UH CAS authentication:
  
   1. [atoy40:meteor-accounts-cas](https://github.com/atoy40/meteor-accounts-cas). 
   2. 'random' (from the meteor core)
