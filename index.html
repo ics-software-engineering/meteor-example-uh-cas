@@ -1,42 +1,30 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Meteor-example-uh-cas : University of Hawaii CAS authentication for Meteor">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Meteor-example-uh-cas</title>
+    <meta charset="UTF-8">
+    <title>meteor-example-uh-cas by ics-software-engineering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">meteor-example-uh-cas</h1>
+      <h2 class="project-tagline">University of Hawaii CAS authentication for Meteor</h2>
+      <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas" class="btn">View on GitHub</a>
+      <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/ics-software-engineering/meteor-example-uh-cas">View on GitHub</a>
-
-          <h1 id="project_title">Meteor-example-uh-cas</h1>
-          <h2 id="project_tagline">University of Hawaii CAS authentication for Meteor</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/ics-software-engineering/meteor-example-uh-cas/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/ics-software-engineering/meteor-example-uh-cas/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <p><img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-example-uh-cas/master/doc/meteor-example-uh-cas.png" alt=""></p>
+    <section class="main-content">
+      <p><img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-example-uh-cas/master/doc/home-login.png" alt=""></p>
 
 <h2>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>Download the system, cd in the app directory, then execute:</p>
+<p>Download the system, cd into the app directory, then execute:</p>
 
 <pre><code>meteor --settings ../config/settings.development.json
 </code></pre>
@@ -44,43 +32,47 @@
 <p>The settings file is needed to provide CAS parameter information. Note that you won't be able to successfully login until you edit the <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/config/settings.development.json">settings.development.json</a> file to indicate that your UH account should be one of those allowed to login.</p>
 
 <h2>
-<a id="walkthrough" class="anchor" href="#walkthrough" aria-hidden="true"><span class="octicon octicon-link"></span></a>Walkthrough</h2>
+<a id="packages" class="anchor" href="#packages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Packages</h2>
+
+<p>Note that this system adds two packages to support UH CAS authentication:</p>
+
+<ol>
+<li>
+<a href="https://github.com/atoy40/meteor-accounts-cas">atoy40:meteor-accounts-cas</a>. </li>
+<li>'random' (from the meteor core)</li>
+</ol>
+
+<h2>
+<a id="walkthrough" class="anchor" href="#walkthrough" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Walkthrough</h2>
 
 <p>Meteor-example-uh-cas is a fork of <a href="http://ics-software-engineering.github.io/meteor-application-template/">meteor-application-template</a> that illustrates how to perform <a href="https://www.hawaii.edu/bwiki/display/UHIAM/UH+Web+Login+Service+-+CAS+v3">University of Hawaii CAS authentication</a>.</p>
 
-<p>This application builds upon meteor-application-template to implement CAS authentication as follows:</p>
+<p>It defines a template called Cas_Login in <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/imports/ui/layouts/cas-login.html">cas-login.html</a> and <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/imports/ui/layouts/cas-login.js">cas-login.js</a>.<br>
+The Cas_Login template is invoked in  <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/imports/ui/layouts/header.html">header.html</a> to put the menu item in the navbar for logging in and out.</p>
 
-<p>First, it uses <a href="https://github.com/atoy40/meteor-accounts-cas">atoy40:meteor-accounts-cas</a>. (I also had to manually add the "random" package from the meteor core.)</p>
+<p>The <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/config/settings.development.json">settings.development.json</a> file provides the configuration parameters to the meteor-accounts-cas package. Note that only two users are allowed to sign in; you will want to edit this setting before adapting this code to your own application. </p>
 
-<p>Second, it defines a template called CasLogin in <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/client/templates/application/CasLogin.html">CasLogin.html</a> and <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/client/templates/application/CasLogin.js">CasLogin.js</a>.  The CasLogin template is invoked in the <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/client/templates/application/Header.html">Header.html</a> to put the link in the navbar to login (and after successful login, to display the user name and a logout button).</p>
+<p>Checking to see that only the users specified in the settings.development.json file are allowed is implemented in <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/imports/startup/server/accounts.js">accounts.js</a>. This file defines a function for validating new users that checks the user-supplied account name against the list of authorized account names in the settings file.</p>
 
-<p>Third, the <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/config/settings.development.json">settings.development.json</a> file provides the configuration parameters to the meteor-accounts-cas package. Note that only two users are allowed to sign in; you will want to edit this setting before adapting this code to your own application. </p>
+<p>After successful authentication, the home page shows the name of the logged in user and the menu changes to provide a logout link:</p>
 
-<p>Checking to see that only the users specified in the settings.development.json file are allowed is implemented in <a href="https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/server/seeds/Accounts.js">Accounts.js</a>. This file defines a function for validating new users that checks the user-supplied account name against the list of authorized account names in the settings file.</p>
+<p><img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-example-uh-cas/master/doc/home-logout.png" alt=""></p>
 
-<h2>
-<a id="screencast" class="anchor" href="#screencast" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screencast</h2>
-
-<p>Click the image below to watch a 10 minute walkthrough of this system.</p>
-
-<p><a href="https://www.youtube.com/watch?v=HA_NAdsr-yw"><img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-example-uh-cas/master/doc/meteor-example-uh-cas-youtube.png" width="600"></a></p>
+<p>Note that UH CAS authentication saves a cookie that persists after logout. This means that after you logout, if you click the login button again, you will be immediately logged in without needing to re-enter your credentials. This, I guess, is a feature, not a bug.</p>
 
 <h2>
-<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
 
-<p>Thanks to <a href="https://github.com/yongwen">Yongwen Xu</a> for the sample code! </p>
-      </section>
-    </div>
+<p>Thanks to <a href="https://github.com/yongwen">Yongwen Xu</a> for the sample code.</p>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Meteor-example-uh-cas maintained by <a href="https://github.com/ics-software-engineering">ics-software-engineering</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/ics-software-engineering/meteor-example-uh-cas">meteor-example-uh-cas</a> is maintained by <a href="https://github.com/ics-software-engineering">ics-software-engineering</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-    
+    </section>
 
+  
   </body>
 </html>
