@@ -36,6 +36,6 @@ Note that UH CAS authentication saves a cookie that persists after logout. This 
 
 ## Credits
 
-Thanks to [Yongwen Xu](https://github.com/yongwen) for the sample code! 
+Thanks to [Yongwen Xu](https://github.com/yongwen) for the sample code.
 
 
