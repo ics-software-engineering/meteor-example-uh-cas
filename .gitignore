@@ -1,6 +1,8 @@
 # .gitignore standard file for ICS Software Engineering, Fall 2015
 
 *.iml
-.idea/
+.idea
+node_modules
+.DS_Store
 
 settings.production.json
