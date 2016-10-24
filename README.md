@@ -2,7 +2,7 @@
 
 ## Installation
 
-Download the system, cd in the app directory, then execute:
+Download the system, cd into the app directory, then execute:
 
 ```
 meteor --settings ../config/settings.development.json
