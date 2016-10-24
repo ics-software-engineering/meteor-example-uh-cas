@@ -32,7 +32,7 @@ After successful authentication, the home page shows the name of the logged in u
 
 ![](https://raw.githubusercontent.com/ics-software-engineering/meteor-example-uh-cas/master/doc/home-logout.png)
 
-Note that UH CAS authentication saves a cookie that persists after logout. This means that after you logout, if you click the login button again, you will be immediately logged in without needed to re-enter your credentials. This, I guess, is a feature, not a bug.
+Note that UH CAS authentication saves a cookie that persists after logout. This means that after you logout, if you click the login button again, you will be immediately logged in without needing to re-enter your credentials. This, I guess, is a feature, not a bug.
 
 ## Credits
 
