@@ -28,6 +28,12 @@ The [settings.development.json](https://github.com/ics-software-engineering/mete
 
 Checking to see that only the users specified in the settings.development.json file are allowed is implemented in [accounts.js](https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/imports/startup/server/accounts.js). This file defines a function for validating new users that checks the user-supplied account name against the list of authorized account names in the settings file.
 
+After successful authentication, the home page shows the name of the logged in user and the menu changes to provide a logout link:
+
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-example-uh-cas/master/doc/home-logout.png)
+
+Note that UH CAS authentication saves a cookie that persists after logout. This means that after you logout, if you click the login button again, you will be immediately logged in without needed to re-enter your credentials. This, I guess, is a feature, not a bug.
+
 ## Credits
 
 Thanks to [Yongwen Xu](https://github.com/yongwen) for the sample code! 
