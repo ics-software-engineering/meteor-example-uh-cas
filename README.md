@@ -34,6 +34,10 @@ After successful authentication, the home page shows the name of the logged in u
 
 Note that UH CAS authentication saves a cookie that persists after logout. This means that after you logout, if you click the login button again, you will be immediately logged in without needing to re-enter your credentials. This, I guess, is a feature, not a bug.
 
+## About the UH CAS test server
+
+The settings file configures your application to use the University of Hawaii "test" CAS server.  This server is different from the production UH CAS server in one significant way: not all UH accounts are available on this server. If you wish to use this server, you must first communicate with the UH ITS staff to ensure that it is configured with your UH account information. 
+
 ## Credits
 
 Thanks to [Yongwen Xu](https://github.com/yongwen) for the sample code.
