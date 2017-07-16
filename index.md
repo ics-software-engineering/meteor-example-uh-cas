@@ -59,6 +59,8 @@ The settings file configures your application to use the University of Hawaii "t
 
 For an overview of CAS in general and its implementation at UH, see [the Introduction to CAS Screencast](https://www.youtube.com/watch?v=M1NgsJ-NjDI).
 
+Documentation on UH CAS is found [here](https://www.hawaii.edu/bwiki/display/UHIAM/CAS+Developer+Documentation).
+
 ## Credits
 
 Thanks to [Yongwen Xu](https://github.com/yongwen) for the sample code.
